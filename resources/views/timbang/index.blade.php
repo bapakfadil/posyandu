@@ -9,34 +9,47 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <a href="{{ route('timbang.create') }}" class="btn btn-primary mb-4">Tambah Data Timbang</a>
-                    <table class="table-auto w-full">
+                    <a href="{{ route('timbang.create') }}" class="inline-flex items-center px-4 py-2 bg-green-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-500 active:bg-blue-700 focus:outline-none focus:border-blue-700 focus:ring focus:ring-blue-200 disabled:opacity-25 transition">
+                        Tambah Data Timbang
+                    </a>
+                    <table class="min-w-full leading-normal mt-4">
                         <thead>
                             <tr>
-                                <th class="px-4 py-2">Nama Anak</th>
-                                <th class="px-4 py-2">Tanggal Timbang</th>
-                                <th class="px-4 py-2">Usia</th>
-                                <th class="px-4 py-2">Tinggi Badan</th>
-                                <th class="px-4 py-2">Berat Badan</th>
-                                <th class="px-4 py-2">Keterangan</th>
-                                <th class="px-4 py-2">Aksi</th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Nama Anak</th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Jenis Kelamin</th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Nama Ayah</th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Nama Ibu</th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Usia</th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Tanggal Timbang</th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">TB</th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">BB</th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($timbangs as $timbang)
                                 <tr>
-                                    <td class="border px-4 py-2">{{ $timbang->anak->nama_lengkap }}</td>
-                                    <td class="border px-4 py-2">{{ $timbang->tanggal_timbang }}</td>
-                                    <td class="border px-4 py-2">{{ $timbang->usia }}</td>
-                                    <td class="border px-4 py-2">{{ $timbang->tinggi_badan }}</td>
-                                    <td class="border px-4 py-2">{{ $timbang->berat_badan }}</td>
-                                    <td class="border px-4 py-2">{{ $timbang->keterangan }}</td>
-                                    <td class="border px-4 py-2">
-                                        <a href="{{ route('timbang.edit', $timbang->id) }}" class="btn btn-warning">Edit</a>
-                                        <form action="{{ route('timbang.destroy', $timbang->id) }}" method="POST" style="display:inline;">
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ $timbang->anak->nama_lengkap }}</td>
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ $timbang->anak->jenis_kelamin }}</td>
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ $timbang->anak->nama_ayah }}</td>
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ $timbang->anak->nama_ibu }}</td>
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ $timbang->usia }}</td>
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ $timbang->tanggal_timbang }}</td>
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ $timbang->tinggi_badan }}</td>
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ $timbang->berat_badan }}</td>
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        <a href="{{ route('timbang.show', $timbang->id) }}" class="inline-flex items-center px-2 py-1 bg-blue-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-500 active:bg-green-700 focus:outline-none focus:border-green-700 focus:ring focus:ring-green-200 disabled:opacity-25 transition">
+                                            Detail
+                                        </a>
+                                        <a href="{{ route('timbang.edit', $timbang->id) }}" class="inline-flex items-center px-2 py-1 bg-yellow-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-yellow-400 active:bg-yellow-600 focus:outline-none focus:border-yellow-600 focus:ring focus:ring-yellow-200 disabled:opacity-25 transition">
+                                            Edit
+                                        </a>
+                                        <form action="{{ route('timbang.destroy', $timbang->id) }}" method="POST" class="inline-block">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger">Hapus</button>
+                                            <button type="submit" class="inline-flex items-center px-2 py-1 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none focus:border-red-700 focus:ring focus:ring-red-200 disabled:opacity-25 transition">
+                                                Hapus
+                                            </button>
                                         </form>
                                     </td>
                                 </tr>

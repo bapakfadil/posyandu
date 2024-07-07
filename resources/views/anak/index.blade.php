@@ -9,34 +9,43 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <a href="{{ route('anak.create') }}" class="btn btn-primary mb-4">Tambah Data Anak</a>
-                    <table class="table-auto w-full">
+                    <a href="{{ route('anak.create') }}" class="inline-flex items-center px-4 py-2 bg-green-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-500 active:bg-blue-700 focus:outline-none focus:border-blue-700 focus:ring focus:ring-blue-200 disabled:opacity-25 transition">
+                        Tambah Data Anak
+                    </a>
+                    <table class="min-w-full leading-normal mt-4">
                         <thead>
                             <tr>
-                                <th class="px-4 py-2">Nama Lengkap</th>
-                                <th class="px-4 py-2">Jenis Kelamin</th>
-                                <th class="px-4 py-2">Tanggal Lahir</th>
-                                <th class="px-4 py-2">Nama Ayah</th>
-                                <th class="px-4 py-2">Nama Ibu</th>
-                                <th class="px-4 py-2">Alamat</th>
-                                <th class="px-4 py-2">Aksi</th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Nama Lengkap</th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Jenis Kelamin</th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Tanggal Lahir</th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Nama Ayah</th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Nama Ibu</th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Alamat</th>
+                                <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($anaks as $anak)
                                 <tr>
-                                    <td class="border px-4 py-2">{{ $anak->nama_lengkap }}</td>
-                                    <td class="border px-4 py-2">{{ $anak->jenis_kelamin }}</td>
-                                    <td class="border px-4 py-2">{{ $anak->tanggal_lahir }}</td>
-                                    <td class="border px-4 py-2">{{ $anak->nama_ayah }}</td>
-                                    <td class="border px-4 py-2">{{ $anak->nama_ibu }}</td>
-                                    <td class="border px-4 py-2">{{ $anak->alamat }}</td>
-                                    <td class="border px-4 py-2">
-                                        <a href="{{ route('anak.edit', $anak->id) }}" class="btn btn-warning">Edit</a>
-                                        <form action="{{ route('anak.destroy', $anak->id) }}" method="POST" style="display:inline;">
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ $anak->nama_lengkap }}</td>
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ $anak->jenis_kelamin }}</td>
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ $anak->tanggal_lahir }}</td>
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ $anak->nama_ayah }}</td>
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ $anak->nama_ibu }}</td>
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ $anak->alamat }}</td>
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        <a href="{{ route('anak.show', $anak->id) }}" class="inline-flex items-center px-2 py-1 bg-blue-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-500 active:bg-green-700 focus:outline-none focus:border-green-700 focus:ring focus:ring-green-200 disabled:opacity-25 transition">
+                                            Detail
+                                        </a>
+                                        <a href="{{ route('anak.edit', $anak->id) }}" class="inline-flex items-center px-2 py-1 bg-yellow-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-yellow-400 active:bg-yellow-600 focus:outline-none focus:border-yellow-600 focus:ring focus:ring-yellow-200 disabled:opacity-25 transition">
+                                            Edit
+                                        </a>
+                                        <form action="{{ route('anak.destroy', $anak->id) }}" method="POST" class="inline-block">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger">Hapus</button>
+                                            <button type="submit" class="inline-flex items-center px-2 py-1 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none focus:border-red-700 focus:ring focus:ring-red-200 disabled:opacity-25 transition">
+                                                Hapus
+                                            </button>
                                         </form>
                                     </td>
                                 </tr>
