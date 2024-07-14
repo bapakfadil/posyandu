@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AnakController;
 use App\Http\Controllers\ImunisasiController;
 use App\Http\Controllers\TimbangController;
+use App\Http\Controllers\IbuHamilController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,5 +24,6 @@ Route::middleware('auth')->group(function () {
 Route::resource('anak', AnakController::class);
 Route::resource('imunisasi', ImunisasiController::class);
 Route::resource('timbang', TimbangController::class);
+Route::resource('ibu_hamil', IbuHamilController::class);
 
 require __DIR__.'/auth.php';
