@@ -13,7 +13,7 @@
     <!-- Styles -->
     @vite(['resources/css/app.css'])
 </head>
-<body class="bg-cover bg-center bg-fixed min-h-screen flex flex-col" style="background-image: url('{{ asset('images/child-health.jpg') }}');">
+<body class="bg-cover bg-center bg-fixed min-h-screen flex flex-col" style="background-image: url('{{ asset('images/background.webp') }}');">
     <nav x-data="{ open: false }" class="bg-white bg-opacity-90 text-black py-4 px-6 mb-6 flex justify-between items-center">
         <div class="flex items-center">
             <img src="{{ asset('images/logo-posyandu.png') }}" alt="Logo Posyandu" class="h-12 mr-4">
@@ -26,9 +26,9 @@
                     <a href="{{ url('/profile') }}" class="bg-blue-600 text-white px-3 py-2 rounded-md hover:bg-blue-500 transition">Profile</a>
                 @else
                     <a href="{{ route('login') }}" class="bg-blue-600 text-white px-3 py-2 rounded-md hover:bg-blue-500 transition">Log in</a>
-                    @if (Route::has('register'))
+                    {{-- @if (Route::has('register'))
                         <a href="{{ route('register') }}" class="bg-blue-600 text-white px-3 py-2 rounded-md hover:bg-blue-500 transition">Register</a>
-                    @endif
+                    @endif --}}
                 @endauth
             @endif
         </div>
@@ -58,14 +58,14 @@
         </div>
     </div>
 
-    <div class="container mx-auto px-6 py-12 flex-grow bg-black bg-opacity-70 rounded-lg text-white">
+    <div class="container mx-auto px-6 py-12 flex-grow bg-black bg-opacity-90 rounded-lg text-white">
         <div class="hero flex flex-col lg:flex-row items-center justify-between space-y-8 lg:space-y-0 lg:space-x-8">
             <div class="hero-text max-w-lg">
                 <h2 class="text-4xl font-bold mb-4">Posyandu Bonisari</h2>
                 <p class="text-lg mb-6">Sistem Informasi Pendataan Layanan Kesehatan Posyandu Desa Bonisari</p>
                 <a href="{{ route('dashboard') }}" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-500 transition">Mulai</a>
             </div>
-            <img src="{{ asset('images/anak-sehat.png') }}" alt="Health Image" class="w-full max-w-sm rounded-lg">
+            <img src="{{ asset('images/anak-sehat.webp') }}" alt="Health Image" class="w-full max-w-sm rounded-lg">
         </div>
     </div>
     <footer class="bg-white bg-opacity-90 text-black py-4 mt-6 flex items-center justify-center w-full">

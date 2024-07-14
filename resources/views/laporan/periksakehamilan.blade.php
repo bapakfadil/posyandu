@@ -36,19 +36,19 @@
     <h2>Laporan Periksa Kehamilan</h2>
     <table class="no-border-table">
         <tr class="borderless">
-            <td width="30%"><strong>Nama Ibu Hamil:</strong></td>
+            <td width="30%"><strong>Nama Ibu Hamil</strong></td>
             <td width="70%">{{ $ibuHamil->nama_lengkap }}</td>
         </tr>
         <tr class="borderless">
-            <td width="30%"><strong>Nama Suami:</strong></td>
+            <td width="30%"><strong>Nama Suami</strong></td>
             <td width="70%">{{ $ibuHamil->nama_suami }}</td>
         </tr>
         <tr class="borderless">
-            <td width="30%"><strong>Tempat, Tanggal Lahir:</strong></td>
+            <td width="30%"><strong>Tempat, Tanggal Lahir</strong></td>
             <td width="70%">{{ $ibuHamil->tempat_lahir }}, {{ \Carbon\Carbon::parse($ibuHamil->tanggal_lahir)->translatedFormat('d F Y') }}</td>
         </tr>
         <tr class="borderless">
-            <td width="30%"><strong>Alamat:</strong></td>
+            <td width="30%"><strong>Alamat</strong></td>
             <td width="70%">{{ $ibuHamil->alamat }}</td>
         </tr>
     </table>
