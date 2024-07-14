@@ -7,6 +7,7 @@ use App\Http\Controllers\IbuHamilController;
 use App\Http\Controllers\ImunisasiController;
 use App\Http\Controllers\TimbangController;
 use App\Http\Controllers\PeriksaKehamilanController;
+use App\Http\Controllers\BantuanController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -32,5 +33,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/imunisasi/cetak/{id}', [ImunisasiController::class, 'cetakLaporan'])->name('imunisasi.cetak');
 });
 
+Route::get('/bantuan', [BantuanController::class, 'index'])->name('bantuan.index');
 
 require __DIR__.'/auth.php';

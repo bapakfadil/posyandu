@@ -33,6 +33,10 @@
                         <img class="w-5 h-5 mr-2" width="24" height="24" src="https://img.icons8.com/ios/50/pregnant.png" alt="pregnant"/>
                         {{ __('Periksa Kehamilan') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('bantuan.index')" :active="request()->routeIs('bantuan.index')">
+                        <img class="w-5 h-5 mr-2" width="24" height="24" src="https://img.icons8.com/ios/50/help.png" alt="help"/>
+                        {{ __('Bantuan') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -99,6 +103,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('profile.edit')" :active="request()->routeIs('profile.*')">
                 {{ __('Profile') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('bantuan.index')" :active="request()->routeIs('bantuan.index')">
+                {{ __('Bantuan') }}
             </x-responsive-nav-link>
         </div>
 
