@@ -15,7 +15,6 @@ return new class extends Migration
             $table->integer('tinggi_badan');
             $table->integer('berat_badan');
             $table->string('tensi_darah');
-            $table->string('vitamin')->nullable();
             $table->text('keterangan')->nullable();
             $table->timestamps();
         });

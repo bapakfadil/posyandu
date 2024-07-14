@@ -38,9 +38,9 @@
                             <label for="keterangan" class="block text-gray-700">Keterangan:</label>
                             <textarea name="keterangan" id="keterangan" class="form-input w-full">{{ $imunisasi->keterangan }}</textarea>
                         </div>
-                        <div class="mb-4">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
-                            <a href="{{ route('imunisasi.index') }}" class="btn btn-secondary">Kembali</a>
+                        <div class="mb-4 flex items-center justify-between">
+                            <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:bg-blue-700">Simpan</button>
+                            <a href="{{ route('imunisasi.index') }}" class="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 focus:outline-none focus:bg-gray-700">Kembali</a>
                         </div>
                     </form>
                 </div>

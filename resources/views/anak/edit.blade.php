@@ -13,35 +13,35 @@
                         @csrf
                         @method('PUT')
                         <div class="mb-4">
-                            <label for="nama_lengkap" class="block text-gray-700">Nama Lengkap:</label>
-                            <input type="text" name="nama_lengkap" id="nama_lengkap" class="form-input w-full" value="{{ $anak->nama_lengkap }}" required>
+                            <label for="nama_lengkap" class="block text-gray-700 font-semibold">Nama Lengkap:</label>
+                            <input type="text" name="nama_lengkap" id="nama_lengkap" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" value="{{ $anak->nama_lengkap }}" required>
                         </div>
                         <div class="mb-4">
-                            <label for="jenis_kelamin" class="block text-gray-700">Jenis Kelamin:</label>
-                            <select name="jenis_kelamin" id="jenis_kelamin" class="form-input w-full" required>
+                            <label for="jenis_kelamin" class="block text-gray-700 font-semibold">Jenis Kelamin:</label>
+                            <select name="jenis_kelamin" id="jenis_kelamin" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
                                 <option value="Laki-laki" {{ $anak->jenis_kelamin == 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
                                 <option value="Perempuan" {{ $anak->jenis_kelamin == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
                             </select>
                         </div>
                         <div class="mb-4">
-                            <label for="tanggal_lahir" class="block text-gray-700">Tanggal Lahir:</label>
-                            <input type="date" name="tanggal_lahir" id="tanggal_lahir" class="form-input w-full" value="{{ $anak->tanggal_lahir }}" required>
+                            <label for="tanggal_lahir" class="block text-gray-700 font-semibold">Tanggal Lahir:</label>
+                            <input type="date" name="tanggal_lahir" id="tanggal_lahir" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" value="{{ $anak->tanggal_lahir }}" required>
                         </div>
                         <div class="mb-4">
-                            <label for="nama_ayah" class="block text-gray-700">Nama Ayah:</label>
-                            <input type="text" name="nama_ayah" id="nama_ayah" class="form-input w-full" value="{{ $anak->nama_ayah }}" required>
+                            <label for="nama_ayah" class="block text-gray-700 font-semibold">Nama Ayah:</label>
+                            <input type="text" name="nama_ayah" id="nama_ayah" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" value="{{ $anak->nama_ayah }}" required>
                         </div>
                         <div class="mb-4">
-                            <label for="nama_ibu" class="block text-gray-700">Nama Ibu:</label>
-                            <input type="text" name="nama_ibu" id="nama_ibu" class="form-input w-full" value="{{ $anak->nama_ibu }}" required>
+                            <label for="nama_ibu" class="block text-gray-700 font-semibold">Nama Ibu:</label>
+                            <input type="text" name="nama_ibu" id="nama_ibu" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" value="{{ $anak->nama_ibu }}" required>
                         </div>
                         <div class="mb-4">
-                            <label for="alamat" class="block text-gray-700">Alamat:</label>
-                            <input type="text" name="alamat" id="alamat" class="form-input w-full" value="{{ $anak->alamat }}" required>
+                            <label for="alamat" class="block text-gray-700 font-semibold">Alamat:</label>
+                            <input type="text" name="alamat" id="alamat" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" value="{{ $anak->alamat }}" required>
                         </div>
-                        <div class="mb-4">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
-                            <a href="{{ route('anak.index') }}" class="btn btn-secondary">Kembali</a>
+                        <div class="mb-4 flex items-center justify-between">
+                            <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:bg-blue-700">Simpan</button>
+                            <a href="{{ route('anak.index') }}" class="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 focus:outline-none focus:bg-gray-700">Kembali</a>
                         </div>
                     </form>
                 </div>

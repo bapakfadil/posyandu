@@ -4,9 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\IbuHamil;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class IbuHamilController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $ibuHamils = IbuHamil::all();
@@ -15,11 +21,17 @@ class IbuHamilController extends Controller
 
     public function create()
     {
+        if (Auth::user()->role != 'admin') {
+            return redirect('/ibu_hamil')->with('error', 'Unauthorized Access');
+        }
         return view('ibu_hamil.create');
     }
 
     public function store(Request $request)
     {
+        if (Auth::user()->role != 'admin') {
+            return redirect('/ibu_hamil')->with('error', 'Unauthorized Access');
+        }
         $request->validate([
             'nama_lengkap' => 'required',
             'nama_suami' => 'required',
@@ -39,11 +51,17 @@ class IbuHamilController extends Controller
 
     public function edit(IbuHamil $ibuHamil)
     {
+        if (Auth::user()->role != 'admin') {
+            return redirect('/ibu_hamil')->with('error', 'Unauthorized Access');
+        }
         return view('ibu_hamil.edit', compact('ibuHamil'));
     }
 
     public function update(Request $request, IbuHamil $ibuHamil)
     {
+        if (Auth::user()->role != 'admin') {
+            return redirect('/ibu_hamil')->with('error', 'Unauthorized Access');
+        }
         $request->validate([
             'nama_lengkap' => 'required',
             'nama_suami' => 'required',
@@ -58,6 +76,9 @@ class IbuHamilController extends Controller
 
     public function destroy(IbuHamil $ibuHamil)
     {
+        if (Auth::user()->role != 'admin') {
+            return redirect('/ibu_hamil')->with('error', 'Unauthorized Access');
+        }
         $ibuHamil->delete();
         return redirect()->route('ibu_hamil.index');
     }

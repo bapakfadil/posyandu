@@ -36,10 +36,6 @@
                             <input type="text" name="tensi_darah" id="tensi_darah" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                         </div>
                         <div class="mb-4">
-                            <label for="vitamin" class="block text-gray-700 text-sm font-bold mb-2">Vitamin:</label>
-                            <input type="text" name="vitamin" id="vitamin" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                        </div>
-                        <div class="mb-4">
                             <label for="keterangan" class="block text-gray-700 text-sm font-bold mb-2">Keterangan:</label>
                             <textarea name="keterangan" id="keterangan" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
                         </div>

@@ -37,15 +37,12 @@
                             <input type="text" name="tensi_darah" id="tensi_darah" value="{{ $periksaKehamilan->tensi_darah }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                         </div>
                         <div class="mb-4">
-                            <label for="vitamin" class="block text-gray-700 text-sm font-bold mb-2">Vitamin:</label>
-                            <input type="text" name="vitamin" id="vitamin" value="{{ $periksaKehamilan->vitamin }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                        </div>
-                        <div class="mb-4">
                             <label for="keterangan" class="block text-gray-700 text-sm font-bold mb-2">Keterangan:</label>
                             <textarea name="keterangan" id="keterangan" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">{{ $periksaKehamilan->keterangan }}</textarea>
                         </div>
-                        <div class="flex items-center justify-between">
-                            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Simpan</button>
+                        <div class="mb-4 flex items-center justify-between">
+                            <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:bg-blue-700">Simpan</button>
+                            <a href="{{ route('periksa_kehamilan.index') }}" class="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 focus:outline-none focus:bg-gray-700">Kembali</a>
                         </div>
                     </form>
                 </div>

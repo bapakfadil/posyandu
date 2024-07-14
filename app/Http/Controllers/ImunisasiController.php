@@ -5,11 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\Imunisasi;
 use App\Models\Anak;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use Carbon\Carbon;
+use PDF;
 
 class ImunisasiController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $imunisasis = Imunisasi::with('anak')->get();
@@ -18,12 +25,18 @@ class ImunisasiController extends Controller
 
     public function create()
     {
+        if (Auth::user()->role != 'admin') {
+            return redirect('/imunisasi')->with('error', 'Unauthorized Access');
+        }
         $anaks = Anak::all();
         return view('imunisasi.create', compact('anaks'));
     }
 
     public function store(Request $request)
     {
+        if (Auth::user()->role != 'admin') {
+            return redirect('/imunisasi')->with('error', 'Unauthorized Access');
+        }
         $request->validate([
             'anak_id' => 'required|exists:anaks,id',
             'tanggal_imunisasi' => 'required|date',
@@ -52,6 +65,9 @@ class ImunisasiController extends Controller
 
     public function update(Request $request, Imunisasi $imunisasi)
     {
+        if (Auth::user()->role != 'admin') {
+            return redirect('/imunisasi')->with('error', 'Unauthorized Access');
+        }
         $request->validate([
             'anak_id' => 'required|exists:anaks,id',
             'tanggal_imunisasi' => 'required|date',
@@ -85,13 +101,34 @@ class ImunisasiController extends Controller
 
     public function edit(Imunisasi $imunisasi)
     {
+        if (Auth::user()->role != 'admin') {
+            return redirect('/imunisasi')->with('error', 'Unauthorized Access');
+        }
         $anaks = Anak::all();
         return view('imunisasi.edit', compact('imunisasi', 'anaks'));
     }
 
     public function destroy(Imunisasi $imunisasi)
     {
+        if (Auth::user()->role != 'admin') {
+            return redirect('/imunisasi')->with('error', 'Unauthorized Access');
+        }
         $imunisasi->delete();
         return redirect()->route('imunisasi.index');
+    }
+
+    public function cetakLaporan($id)
+    {
+        $anak = Anak::findOrFail($id);
+        $riwayatImunisasi = Imunisasi::where('anak_id', $id)
+                                      ->orderBy('tanggal_imunisasi', 'asc')
+                                      ->get();
+
+        if ($riwayatImunisasi->isEmpty()) {
+            return redirect()->back()->with('error', 'No data found for this Anak');
+        }
+
+        $pdf = PDF::loadView('laporan.imunisasi', compact('anak', 'riwayatImunisasi'));
+        return $pdf->download('laporan_imunisasi.pdf');
     }
 }

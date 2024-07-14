@@ -9,18 +9,19 @@ class PeriksaKehamilan extends Model
 {
     use HasFactory;
 
+    protected $table = 'periksa_kehamilans'; // Menentukan nama tabel
+
     protected $fillable = [
         'ibu_hamil_id',
         'tanggal_periksa',
         'tinggi_badan',
         'berat_badan',
         'tensi_darah',
-        'vitamin',
         'keterangan',
     ];
 
     public function ibuHamil()
     {
-        return $this->belongsTo(IbuHamil::class);
+        return $this->belongsTo(IbuHamil::class, 'ibu_hamil_id');
     }
 }

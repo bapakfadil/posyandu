@@ -6,9 +6,15 @@ use App\Models\Timbang;
 use App\Models\Anak;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class TimbangController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $timbangs = Timbang::with('anak')->get();
@@ -17,12 +23,18 @@ class TimbangController extends Controller
 
     public function create()
     {
+        if (Auth::user()->role != 'admin') {
+            return redirect('/timbang')->with('error', 'Unauthorized Access');
+        }
         $anaks = Anak::all();
         return view('timbang.create', compact('anaks'));
     }
 
     public function store(Request $request)
     {
+        if (Auth::user()->role != 'admin') {
+            return redirect('/timbang')->with('error', 'Unauthorized Access');
+        }
         $request->validate([
             'anak_id' => 'required|exists:anaks,id',
             'tanggal_timbang' => 'required|date',
@@ -58,12 +70,18 @@ class TimbangController extends Controller
 
     public function edit(Timbang $timbang)
     {
+        if (Auth::user()->role != 'admin') {
+            return redirect('/timbang')->with('error', 'Unauthorized Access');
+        }
         $anaks = Anak::all();
         return view('timbang.edit', compact('timbang', 'anaks'));
     }
 
     public function update(Request $request, Timbang $timbang)
     {
+        if (Auth::user()->role != 'admin') {
+            return redirect('/timbang')->with('error', 'Unauthorized Access');
+        }
         $request->validate([
             'anak_id' => 'required|exists:anaks,id',
             'tanggal_timbang' => 'required|date',
@@ -94,6 +112,9 @@ class TimbangController extends Controller
 
     public function destroy(Timbang $timbang)
     {
+        if (Auth::user()->role != 'admin') {
+            return redirect('/timbang')->with('error', 'Unauthorized Access');
+        }
         $timbang->delete();
         return redirect()->route('timbang.index');
     }
