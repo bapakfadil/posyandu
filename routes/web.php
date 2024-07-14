@@ -6,6 +6,7 @@ use App\Http\Controllers\AnakController;
 use App\Http\Controllers\ImunisasiController;
 use App\Http\Controllers\TimbangController;
 use App\Http\Controllers\IbuHamilController;
+use App\Http\Controllers\PeriksaKehamilanController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -25,5 +26,7 @@ Route::resource('anak', AnakController::class);
 Route::resource('imunisasi', ImunisasiController::class);
 Route::resource('timbang', TimbangController::class);
 Route::resource('ibu_hamil', IbuHamilController::class);
+Route::resource('periksa_kehamilan', PeriksaKehamilanController::class);
+
 
 require __DIR__.'/auth.php';
