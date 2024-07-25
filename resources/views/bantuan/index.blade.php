@@ -29,8 +29,8 @@
                         Teknologi yang digunakan:
                     </p>
                     <ul class="mt-2 list-disc list-inside">
-                        <li>Laravel v11.14.0</li>
-                        <li>PHP v8.2.13</li>
+                        <li>Laravel 10</li>
+                        <li>PHP 8</li>
                         <li>Tailwind CSS</li>
                         <li>JavaScript</li>
                         <li>MySQL</li>
